@@ -5,7 +5,8 @@ from sympy import re
 
 
 def home(request):
-    return render(request,"home.html")
+    return render(request, "home.html")
+
 
 def results(request):
 
@@ -14,13 +15,13 @@ def results(request):
     extra_tree = joblib.load("extra tree.sav")
     lis = []
 
-    lis.append(request.GET['RI'])
-    lis.append(request.GET['Na'])
-    lis.append(request.GET['Mg'])
-    lis.append(request.GET['AI'])
-    lis.append(request.GET['Si'])
-    lis.append(request.GET['K'])
-    lis.append(request.GET['Ca'])
+    lis.append(request.GET["RI"])
+    lis.append(request.GET["Na"])
+    lis.append(request.GET["Mg"])
+    lis.append(request.GET["AI"])
+    lis.append(request.GET["Si"])
+    lis.append(request.GET["K"])
+    lis.append(request.GET["Ca"])
 
     print(lis)
 
@@ -28,14 +29,16 @@ def results(request):
     ans2 = decision_tree.predict([lis])
     ans3 = extra_tree.predict([lis])
 
-    d = {'1': "buildingwindowsfloatprocessed", 
-        '2': "buildingwindowsnonfloatprocessed",
-            '3': "vehiclewindowsfloatprocessed",
-            '4': "vehiclewindowsnonfloatprocessed (none in this database)",
-            '5': "containers",
-            '6': "tableware",
-            '7': "headlamps"}
+    d = {
+        "1": "buildingwindowsfloatprocessed",
+        "2": "buildingwindowsnonfloatprocessed",
+        "3": "vehiclewindowsfloatprocessed",
+        "4": "vehiclewindowsnonfloatprocessed (none in this database)",
+        "5": "containers",
+        "6": "tableware",
+        "7": "headlamps",
+    }
 
-
-    return render(request,"result.html",{"lis":lis,"ans1":ans1,
-    "ans2":ans2, "ans3":ans3})
+    return render(
+        request, "result.html", {"lis": lis, "ans1": ans1, "ans2": ans2, "ans3": ans3}
+    )
