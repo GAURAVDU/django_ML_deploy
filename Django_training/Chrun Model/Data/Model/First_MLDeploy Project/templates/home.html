@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Welcome Glass Classification ML Model !!</h1>
+
+    <h3>Enter Your Data Here .... </h3>
+
+    <div class="container">
+
+    <form action="{% url 'result' %}">
+
+    {% csrf_token %}
+
+    RI: <input type = "text" required name = "RI"> <br> <br>
+    Na: <input type = "text" required name = "Na"> <br> <br>
+    Mg: <input type = "text" required name = "Mg"> <br> <br>
+    AI: <input type = "text" required name = "AI"> <br> <br>
+    Si: <input type = "text" required name = "Si"> <br> <br>
+     K: <input type = "text" required name = "K"> <br> <br>
+    Ca: <input type = "text" required name = "Ca"> <br> <br>
+
+<input type="submit" name="" value = "submit">
+
+    </form>
+</div>
+
+</body>
+</html>
